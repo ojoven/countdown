@@ -5,5 +5,10 @@
 const lib = new Vue({
 	methods: {
 
+		str_pad_left: function(string, pad) {
+			var str = "" + string;
+			var ans = pad.substring(0, pad.length - str.length) + str;
+			return ans;
+		},
 	}
 });

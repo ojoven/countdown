@@ -12,8 +12,7 @@ var express = require('express'),
 var port = process.env.PORT || 8001;
 
 // Libs
-var database = require("./app/lib/database.js");
-var twitterStream = require("./app/lib/twitterStream.js");
+//var twitterStream = require("./app/lib/twitterStream.js");
 
 // Models
 
@@ -35,16 +34,5 @@ io.on('connection', function (socket) {
 	socket.on('event', function() {
 		//doSomething();
 	});
-
-});
-
-// Twitter Stream
-twitterStream.on('tweet', function (tweet) {
-
-	try {
-
-	} catch (err) {
-		console.log(err);
-	}
 
 });
