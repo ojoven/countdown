@@ -1,0 +1,14 @@
+// ==============================================
+// COUNTDOWN
+// ==============================================
+
+#countdown {
+
+	// NUMBERS
+	.count-num {
+		font-size: 70px;
+		display: block;
+		margin: 20px auto 0;
+		@extend .bold;
+	}
+}
