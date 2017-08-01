@@ -28,11 +28,31 @@ require('./routes')(app, io);
 // Logging
 console.log('Your application is running on http://localhost:' + port);
 
+var countermseconds = 6000;
+
 // When socket connection
 io.on('connection', function (socket) {
 
-	socket.on('event', function() {
-		//doSomething();
+	socket.on('addtime', function() {
+		console.log('add time!');
+		emitAddTime();
 	});
 
+	emitSetTime();
+
 });
+
+function emitAddTime() {
+	var data = { time: 100 };
+	io.sockets.emit('addtime', data);
+}
+
+function emitSetTime() {
+	var data = { time: countermseconds };
+	io.sockets.emit('settime', data);
+}
+
+setInterval(function() {
+	console.log(countermseconds);
+	countermseconds--;
+}, 10);

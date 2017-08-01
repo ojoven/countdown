@@ -15,10 +15,19 @@ Vue.component('countdown', {
 	},
 
 	created: function() {
-		this.counter = setInterval(this.timer, 10);
+
+		// Set Timer
+		this.startTimer();
+
+		// Add Time
+		this.addTimeIfEvent();
 	},
 
 	methods: {
+
+		startTimer: function() {
+			this.counter = setInterval(this.timer, 10);
+		},
 
 		timer: function() {
 
@@ -35,6 +44,15 @@ Vue.component('countdown', {
 			var milliseconds = secondsAndMillisecondsArray[1];
 
 			this.countHTML = lib.str_pad_left(minutes, '00') + ':' + lib.str_pad_left(seconds, '00') + ':' + lib.str_pad_left(milliseconds, '00');
+
+		},
+
+		addTimeIfEvent: function() {
+
+			// When we receive it, let's update the user
+			socket.on('addtime', function(data) {
+				this.count += data.time;
+			}.bind(this));
 
 		}
 

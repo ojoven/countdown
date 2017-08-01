@@ -1,7 +1,7 @@
 {
-  "name": "Odiometro",
+  "name": "HumanityCountdown",
   "version": "0.9.0",
-  "description": "Measure hate tweets in real time on Twitter",
+  "description": "Let's prevent the world from exploding",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

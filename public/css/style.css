@@ -72,13 +72,13 @@ sub { top: 0.4em; }
 .container { position: relative; max-width: 1180px; margin: 0 auto; text-align: center; }
 
 @media screen and (max-width: 1200px) { .container { max-width: 100%; padding: 0 1.5%; } }
-footer { position: absolute; bottom: 0; text-align: center; width: 100%; background: #8A0707; color: #fff; padding: 9px; font-size: 12px; z-index: 99; }
+footer { position: absolute; bottom: 0; text-align: center; width: 100%; background: #444; color: #fff; padding: 9px; font-size: 12px; z-index: 99; }
 footer a { color: #fff; }
 
 .grid.row50 > .container > * { width: 46%; float: left; }
 .grid.row50 > .container > *:first-child { margin-right: 4%; }
 
-#header { background: #8A0707; padding: 5px 0; }
+#header { background: #444; padding: 5px 0; }
 #header h1 { color: #ffffff; font-size: 40px; }
 #header h1 i { display: inline-block; background: url(../img/knife.png) no-repeat center center; background-size: contain; width: 40px; height: 40px; position: relative; top: 4px; }
 #header h1 i.left { left: -10px; }
@@ -113,14 +113,11 @@ input[type="checkbox"] { -webkit-appearance: checkbox; }
 input { -webkit-appearance: none; border-radius: 0; }
 
 /** COMPONENTS **/
-.btn { -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; -webkit-transition: all 0.2s ease; transition: all 0.2s ease; display: inline-block; font-size: 16px; line-height: 1.2; padding: 10px 20px 10px 20px; text-decoration: none; text-transform: uppercase; text-align: center; margin: 10px; }
-.btn.btn-rating { border-radius: 50%; width: 100px; height: 100px; border: 3px solid #ccc; box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.29804) inset, 0 -1px 1px 0 rgba(255, 255, 255, 0.14902) inset, 0 7px 0 0 #bbbbbb, 0 8px 3px 0 rgba(0, 0, 0, 0.2); }
-.btn.btn-rating > i { color: #ffffff; font-size: 50px; position: relative; top: 10px; text-shadow: 0 2px 2px #444; }
-.btn.btn-rating.active { box-shadow: none; -moz-transform: translate3d(0px, 5px, 0); -o-transform: translate3d(0px, 5px, 0); -ms-transform: translate3d(0px, 5px, 0); -webkit-transform: translate3d(0px, 5px, 0); transform: translate3d(0px, 5px, 0); }
-.btn.btn-rating.rating-positive { border-color: #590505; background: #8A0707; }
-.btn.btn-rating.rating-negative { border-color: #b3b3b3; background: #cccccc; }
-.btn.btn-default { color: #444; border: 3px solid #444; }
-.btn.btn-default:hover, .btn.btn-default:focus { background-color: #444; border-color: #ffffff; color: #ffffff; }
+.btn { -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; -webkit-transition: all 0.2s ease; transition: all 0.2s ease; display: inline-block; font-size: 16px; line-height: 1.2; padding: 10px 20px 10px 20px; text-decoration: none; text-transform: uppercase; text-align: center; margin: 10px; color: #444; }
+.btn.main-btn { line-height: 71px; font-size: 21px; border-radius: 50%; width: 100px; height: 100px; border: 3px solid #ffffff; box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.29804) inset, 0 -1px 1px 0 rgba(255, 255, 255, 0.14902) inset, 0 7px 0 0 #bbbbbb, 0 8px 3px 0 rgba(0, 0, 0, 0.2); background-color: #444; color: #ffffff; }
+.btn.main-btn > i { color: #ffffff; font-size: 50px; position: relative; top: 10px; text-shadow: 0 2px 2px #444; }
+.btn.main-btn:hover, .btn.main-btn:focus { background-color: #2b2b2b; }
+.btn.main-btn.active { box-shadow: none; -moz-transform: translate3d(0px, 5px, 0); -o-transform: translate3d(0px, 5px, 0); -ms-transform: translate3d(0px, 5px, 0); -webkit-transform: translate3d(0px, 5px, 0); transform: translate3d(0px, 5px, 0); }
 .btn.btn-twitter { color: #1da1f2; border: 3px solid #1da1f2; background: #ffffff; text-transform: none; padding: 10px; }
 .btn.btn-twitter > i { margin-right: 5px; }
 
@@ -129,7 +126,7 @@ input { -webkit-appearance: none; border-radius: 0; }
 input { padding: 10px 20px; font-size: 14px; border: 2px solid #cccccc; width: 100%; margin: 0 0 10px; }
 
 #messages { margin-top: 20px; }
-#messages p { font-size: 14px; color: #999; margin: 10px 0; }
+#messages p { font-size: 14px; color: #999; margin: 10px 0; max-width: 700px; margin-left: auto; margin-right: auto; }
 
 h1, h2, h3 { color: #000; font-size: 38px; line-height: 1.2; }
 

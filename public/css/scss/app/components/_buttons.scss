@@ -20,15 +20,19 @@ $btnMainHoverBorder: #ccc;
   text-transform: uppercase;
   text-align: center;
   margin: 10px;
+  color: $blackTundora;
 
-  // RATING BUTTONS
-  &.btn-rating {
-
+  // MAIN BUTTON
+  &.main-btn {
+    line-height: 71px;
+    font-size: 21px;
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    border: 3px solid #ccc;
-    box-shadow: 0 1px 0 0 rgba(255,255,255,0.298039) inset, 0 -1px 1px 0 rgba(255,255,255,0.14902) inset, 0 7px 0 0 rgb(187,187,187), 0 8px 3px 0 rgba(0,0,0,0.2);
+    border: 3px solid $white;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.298039) inset, 0 -1px 1px 0 rgba(255, 255, 255, 0.14902) inset, 0 7px 0 0 rgb(187, 187, 187), 0 8px 3px 0 rgba(0, 0, 0, 0.2);
+    background-color: $blackTundora;
+    color: $white;
 
     // Icon
     > i {
@@ -39,34 +43,15 @@ $btnMainHoverBorder: #ccc;
       text-shadow: 0 2px 2px #444;
     }
 
+    &:hover, &:focus {
+      background-color: darken($blackTundora, 10%);
+    }
+
     &.active {
       box-shadow: none;
       @include translateY(5px);
     }
 
-    // Rating Finale
-    &.rating-positive {
-      border-color: darken($redFirebrick, 10%);
-      background: $redFirebrick;
-    }
-
-    &.rating-negative {
-      border-color: darken($greySilver, 10%);
-      background: $greySilver;
-    }
-
-  }
-
-  // DEFAULT BUTTON
-  &.btn-default {
-    color: $blackTundora;
-    border: 3px solid $blackTundora;
-
-    &:hover, &:focus {
-      background-color: $blackTundora;
-      border-color: $white;
-      color: $white;
-    }
   }
 
   // TWITTER BUTTON
@@ -81,11 +66,6 @@ $btnMainHoverBorder: #ccc;
     > i {
       margin-right: 5px;
     }
-  }
-
-  // ALTERNATE BUTTON
-  &.btn-alternate {
-    // Use if alternate button
   }
 
 }
