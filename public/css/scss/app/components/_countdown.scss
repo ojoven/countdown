@@ -11,4 +11,13 @@
 		margin: 20px auto 0;
 		@extend .bold;
 	}
+
+	.loader {
+		display: block;
+		height: 100px;
+		width: 100px;
+		background: url(../img/loader.gif) no-repeat center center;
+		background-size: cover;
+		margin: 0 auto;
+	}
 }
