@@ -33,12 +33,15 @@ console.log('Your application is running on http://localhost:' + port);
 // When socket connection
 io.on('connection', function (socket) {
 
+	Emitter.initialize(io);
+	Timer.attachEmitter(Emitter);
+
 	socket.on('addtime', function() {
 		console.log('add time!');
-		Emitter.emitSetTime(io, 'add', 10);
+		Emitter.emitSetTime('add', 10);
 	});
 
-	Emitter.emitSetTime(io, 'initial', 0);
+	Emitter.emitSetTime('initial', 0);
 
 });
 

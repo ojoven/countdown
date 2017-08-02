@@ -1,41 +1,56 @@
 /** TIMER **/
 
-var Timer = {};
-Timer.timerInterval = false;
-Timer.step = 10;
-Timer.timeToNextTimer = 1000;
-Timer.initialTime = 600;
-Timer.time = Timer.initialTime;
+var Timer = {
 
-// Timer Interval
-Timer.runTimerInterval = function() {
+	timerInterval: false,
+	step: 10,
+	timeToNextTimer: 1000,
+	initialTime: 600,
+	time: 0,
+	emitter: false,
 
-	var timer = this;
+	// Initialize
+	initialize: function() {
+		this.time = this.initialTime;
+	},
 
-	this.timerInterval = setInterval(function() {
+	// Attach Emitter
+	attachEmitter: function(emitter) {
+		this.emitter = emitter;
+	},
 
-		timer.runTimer();
+	// Timer Interval
+	runTimerInterval: function() {
 
-	}, timer.step);
-};
+		var timer = this;
+		timer.initialize();
 
-// Run Timer
-Timer.runTimer = function() {
+		this.timerInterval = setInterval(function() {
 
-	var timer = this;
+			timer.runTimer();
 
-	if (timer.time <= 0) {
-		clearInterval(timer.timerInterval);
+		}, timer.step);
+	},
 
-		setTimeout(function() {
-			timer.time = timer.initialTime;
-			//emitSetTime('initial', 0);
-			timer.runTimerInterval();
-		}, timer.timeToNextTimer);
+	// Run Timer
+	runTimer: function() {
+
+		var timer = this;
+
+		if (timer.time <= 0) {
+			clearInterval(timer.timerInterval);
+
+			setTimeout(function() {
+				timer.time = timer.initialTime;
+				this.emitter.emitSetTime('initial', 0);
+				timer.runTimerInterval();
+			}, timer.timeToNextTimer);
+		}
+
+		console.log(timer.time);
+		timer.time--;
 	}
 
-	console.log(timer.time);
-	timer.time--;
 };
 
 module.exports = Timer;

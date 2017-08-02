@@ -1,13 +1,21 @@
 /** EMITTER **/
 
-var Emitter = {};
+var Emitter = {
+	io: false,
 
-// Emit Set Time
-Emitter.emitSetTime = function(io, time, type, value) {
+	// Initialize
+	initialize: function(io) {
+		this.io = io;
+	},
 
-	var data = { time: time, type: type, value: value };
-	io.sockets.emit('setTime', data);
+	// Set Time
+	emitSetTime: function(time, type, value) {
+		var data = { time: time, type: type, value: value };
+		this.io.sockets.emit('setTime', data);
+	}
+
 };
 
+// Emit
 module.exports = Emitter;
 
