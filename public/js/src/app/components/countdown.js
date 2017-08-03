@@ -45,6 +45,7 @@ Vue.component('countdown', {
 			}
 
 			this.time--;
+			console.log(this.time);
 			this.renderTime();
 		},
 

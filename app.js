@@ -35,13 +35,17 @@ io.on('connection', function (socket) {
 
 	Emitter.initialize(io);
 
+	// Specific sockets (clients)
+	io.to(socket.id).emit('setTime', { time: Timer.time, type: 'initial' });
+
+	// Broadcast
 	socket.on('addtime', function() {
 		console.log('add time!');
 		Timer.time += 100;
 		Emitter.emitSetTime(Timer.time, 'add', Timer.step);
 	});
 
-	Emitter.emitSetTime(Timer.time, 'initial', 0);
+	//Emitter.emitSetTime(Timer.time, 'initial', 0);
 
 });
 
