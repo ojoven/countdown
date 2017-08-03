@@ -4,7 +4,6 @@ Vue.component('countdown', {
 		<div id="countdown">
 			<div class="loader" v-show="showLoader"></div>
 			<div class="count-num" v-show="showTime">{{timeHTML}}</div>
-			<div class="end" v-show="showEnd">THE END! All humans are dead :(</div>
 			<div id="countdown-animations" v-show="showTime">
 			</div>
 		</div>
@@ -94,30 +93,32 @@ Vue.component('countdown', {
 			if (data.type == 'initial') {
 				this.showLoader = false;
 				this.showTime = true;
-				this.showEnd = false;
+				bus.$emit('inittime');
 				this.startTimer();
 			}
 		},
 
 		endTime: function() {
 			clearInterval(this.timerInterval);
-
-			this.showTime = false;
-			this.showEnd = true;
+			bus.$emit('endtime');
 		},
 
 		// Animations
 		renderAnimationPlusTime: function() {
-			console.log(document.getElementById("countdown-animations"));
 
+			// Create animation div
 			var wrapper = document.getElementById("countdown-animations");
 			var animationHTML = document.createElement("div");
 			animationHTML.innerHTML = '+1';
 			animationHTML.className = "addtime-animation";
+
+			// Append it to animations div
 			wrapper.appendChild(animationHTML);
 			setTimeout(function() {
+
+				// Remove after animation has ended
 				animationHTML.parentNode.removeChild(animationHTML);
-			}, 1000);
+			}, 700);
 		}
 	}
 

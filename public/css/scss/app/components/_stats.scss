@@ -1,0 +1,22 @@
+// ==============================================
+// STATS
+// ==============================================
+
+#stats-container {
+	position: relative;
+}
+
+#stats {
+
+	position: absolute;
+	bottom: -40px;
+	width: 100%;
+	font-size: 14px;
+	color: $greyDark;
+
+	.citizens {
+		.number {
+			font-weight: bold;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+// ==============================================
+// END
+// ==============================================
+
+.end {
+
+	text-align: center;
+
+	.title {
+		font-size: 40px;
+	}
+
+	.explosion {
+		width: 300px;
+		margin: 0 auto;
+		display: block;
+	}
+
+	.description {
+		display: block;
+		margin: 10px auto;
+		color: $greyDark;
+	}
+
+}

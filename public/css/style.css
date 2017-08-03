@@ -79,6 +79,8 @@ sub { top: 0.4em; }
 /** LAYOUT **/
 .container { position: relative; max-width: 1180px; margin: 0 auto; text-align: center; }
 
+#main-view { margin: 20px; }
+
 @media screen and (max-width: 1200px) { .container { max-width: 100%; padding: 0 1.5%; } }
 footer { position: absolute; bottom: 0; text-align: center; width: 100%; background: #444; color: #fff; padding: 9px; font-size: 12px; z-index: 99; }
 footer a { color: #fff; }
@@ -121,7 +123,7 @@ input[type="checkbox"] { -webkit-appearance: checkbox; }
 input { -webkit-appearance: none; border-radius: 0; }
 
 /** COMPONENTS **/
-.btn { -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; -webkit-transition: all 0.2s ease; transition: all 0.2s ease; display: inline-block; font-size: 16px; line-height: 1.2; padding: 10px 20px 10px 20px; text-decoration: none; text-transform: uppercase; text-align: center; margin: 10px; color: #444; }
+.btn { -moz-transition: all 0.1s ease; -o-transition: all 0.1s ease; -webkit-transition: all 0.1s ease; transition: all 0.1s ease; display: inline-block; font-size: 16px; line-height: 1.2; padding: 10px 20px 10px 20px; text-decoration: none; text-transform: uppercase; text-align: center; margin: 10px; color: #444; }
 .btn.main-btn { line-height: 71px; font-size: 21px; border-radius: 50%; width: 100px; height: 100px; border: 3px solid #ffffff; box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.29804) inset, 0 -1px 1px 0 rgba(255, 255, 255, 0.14902) inset, 0 7px 0 0 #bbbbbb, 0 8px 3px 0 rgba(0, 0, 0, 0.2); background-color: #444; color: #ffffff; }
 .btn.main-btn > i { color: #ffffff; font-size: 50px; position: relative; top: 10px; text-shadow: 0 2px 2px #444; }
 .btn.main-btn:hover, .btn.main-btn:focus { background-color: #2b2b2b; }
@@ -134,7 +136,17 @@ input { -webkit-appearance: none; border-radius: 0; }
 #countdown .loader { display: block; height: 100px; width: 100px; background: url(../img/loader.gif) no-repeat center center; background-size: cover; margin: 0 auto; }
 #countdown .addtime-animation { position: absolute; top: 10px; right: -20px; color: #78AB46; font-size: 20px; -webkit-animation-delay: 0; -webkit-animation-duration: 0.5s; -webkit-animation-name: addtime; -webkit-animation-fill-mode: forwards; -webkit-animation-iteration-count: 1; -moz-animation-delay: 0; -moz-animation-duration: 0.5s; -moz-animation-name: addtime; -moz-animation-fill-mode: forwards; -moz-animation-iteration-count: 1; -o-animation-delay: 0; -o-animation-duration: 0.5s; -o-animation-name: addtime; -o-animation-fill-mode: forwards; -o-animation-iteration-count: 1; animation-delay: 0; animation-duration: 0.5s; animation-name: addtime; animation-fill-mode: forwards; animation-iteration-count: 1; }
 
+.end { text-align: center; }
+.end .title, .end #header h1, #header .end h1 { font-size: 40px; }
+.end .explosion { width: 300px; margin: 0 auto; display: block; }
+.end .description { display: block; margin: 10px auto; color: #666; }
+
 input { padding: 10px 20px; font-size: 14px; border: 2px solid #cccccc; width: 100%; margin: 0 0 10px; }
+
+#stats-container { position: relative; }
+
+#stats { position: absolute; bottom: -40px; width: 100%; font-size: 14px; color: #666; }
+#stats .citizens .number { font-weight: bold; }
 
 #messages { margin-top: 20px; }
 #messages p { font-size: 14px; color: #999; margin: 10px 0; max-width: 700px; margin-left: auto; margin-right: auto; }

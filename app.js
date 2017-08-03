@@ -9,7 +9,7 @@ global.appRoot = path.resolve(__dirname);
 var express = require('express'),
 	app = express();
 
-var port = process.env.PORT || 8001;
+var port = process.env.PORT || 8002;
 
 // Libs
 //var twitterStream = require("./app/lib/twitterStream.js");
@@ -30,8 +30,13 @@ require('./routes')(app, io);
 // Logging
 console.log('Your application is running on http://localhost:' + port);
 
+var clients = [];
+
 // When socket connection
 io.on('connection', function (socket) {
+
+	console.log(socket.id);
+	clients.push(socket.id);
 
 	Emitter.initialize(io);
 
@@ -45,7 +50,16 @@ io.on('connection', function (socket) {
 		Emitter.emitSetTime(Timer.time, 'add', Timer.step);
 	});
 
-	//Emitter.emitSetTime(Timer.time, 'initial', 0);
+	Emitter.emitNumberCitizens(clients);
+
+	socket.on('disconnect', function() {
+		console.log('Got disconnect!');
+
+		var i = clients.indexOf(socket.id);
+		clients.splice(i, 1);
+
+		Emitter.emitNumberCitizens(clients);
+	});
 
 });
 
