@@ -4,7 +4,7 @@ Vue.component('action-buttons', {
 		<div id="action-buttons">
 			<a id="main" :class="{ active: active }"
 			class="btn main-btn"
-			@mousedown="addTime()" @touchstart="addTime()"
+			@touchstart="addTime()"
 			@touchend="removeActive()" @mouseup="removeActive"
 			href="#">{{buttonText}}</a>
 		</div>
@@ -25,6 +25,7 @@ Vue.component('action-buttons', {
 
 		addTime: function() {
 			socket.emit('addtime');
+			console.log('add time!');
 			this.active = true;
 		},
 

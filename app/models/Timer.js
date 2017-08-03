@@ -1,22 +1,19 @@
 /** TIMER **/
 
+var Emitter = require("./Emitter.js");
+
 var Timer = {
 
 	timerInterval: false,
 	step: 10,
 	timeToNextTimer: 1000,
-	initialTime: 600,
+	initialTime: 6000,
 	time: 0,
 	emitter: false,
 
 	// Initialize
 	initialize: function() {
 		this.time = this.initialTime;
-	},
-
-	// Attach Emitter
-	attachEmitter: function(emitter) {
-		this.emitter = emitter;
 	},
 
 	// Timer Interval
@@ -42,7 +39,7 @@ var Timer = {
 
 			setTimeout(function() {
 				timer.time = timer.initialTime;
-				this.emitter.emitSetTime('initial', 0);
+				Emitter.emitSetTime(timer.time, 'initial', 0);
 				timer.runTimerInterval();
 			}, timer.timeToNextTimer);
 		}

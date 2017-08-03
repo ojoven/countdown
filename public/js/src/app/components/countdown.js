@@ -13,6 +13,7 @@ Vue.component('countdown', {
 			time: false,
 			timeHTML: '',
 			timerInterval: false,
+			timeStep: 10,
 
 			showTime: false,
 			showLoader: true,
@@ -21,9 +22,6 @@ Vue.component('countdown', {
 	},
 
 	created: function() {
-
-		// Set Timer
-		this.startTimer();
 
 		// Catch Events
 		this.catchEvents();
@@ -36,7 +34,7 @@ Vue.component('countdown', {
 
 		// Timer functions
 		startTimer: function() {
-			this.timerInterval = setInterval(this.runTimer, 10);
+			this.timerInterval = setInterval(this.runTimer, this.timeStep);
 		},
 
 		runTimer: function() {
@@ -95,6 +93,7 @@ Vue.component('countdown', {
 				this.showLoader = false;
 				this.showTime = true;
 				this.showEnd = false;
+				this.startTimer();
 			}
 		},
 

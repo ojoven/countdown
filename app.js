@@ -34,14 +34,14 @@ console.log('Your application is running on http://localhost:' + port);
 io.on('connection', function (socket) {
 
 	Emitter.initialize(io);
-	Timer.attachEmitter(Emitter);
 
 	socket.on('addtime', function() {
 		console.log('add time!');
-		Emitter.emitSetTime('add', 10);
+		Timer.time += 100;
+		Emitter.emitSetTime(Timer.time, 'add', Timer.step);
 	});
 
-	Emitter.emitSetTime('initial', 0);
+	Emitter.emitSetTime(Timer.time, 'initial', 0);
 
 });
 
