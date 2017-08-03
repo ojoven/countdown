@@ -7,7 +7,7 @@ var Timer = {
 	timerInterval: false,
 	step: 10,
 	timeToNextTimer: 1000,
-	initialTime: 6000,
+	initialTime: 600,
 	time: 0,
 	emitter: false,
 

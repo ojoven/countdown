@@ -9,7 +9,7 @@ h2, h3, h4 { font-weight: normal; }
 @font-face { font-family: "LaramiePro Regular"; src: url("fonts/LaramiePro-Regular.eot"); src: url("fonts/LaramiePro-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/LaramiePro-Regular.woff") format("woff"), url("fonts/LaramiePro-Regular.ttf") format("truetype"), url("fonts/LaramiePro-Regular.svg#LaramiePro Regular") format("svg"); font-weight: normal; font-style: normal; }
 .regular, body, p, footer, input, h4 { font-family: 'Ubuntu', sans-serif; font-weight: 400; }
 
-.bold, .btn, #countdown .count-num, h1, h2, h3 { font-family: 'Bahiana', cursive; font-weight: 400; }
+.bold, .btn, #countdown .count-num, #countdown .addtime-animation, h1, h2, h3 { font-family: 'Bahiana', cursive; font-weight: 400; }
 
 .title, #header h1 { font-family: 'Bahiana', cursive; font-weight: 400; }
 
@@ -47,6 +47,14 @@ h2, h3, h4 { font-weight: normal; }
   50% { -moz-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
   75% { -moz-transform: translate3d(0, 5px, 0); -o-transform: translate3d(0, 5px, 0); -ms-transform: translate3d(0, 5px, 0); -webkit-transform: translate3d(0, 5px, 0); transform: translate3d(0, 5px, 0); }
   100% { -moz-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); } }
+@-moz-keyframes addtime { 0% { opacity: 0; transform: translate3d(0, 100%, 0); }
+  100% { opacity: 1; transform: none; } }
+@-webkit-keyframes addtime { 0% { opacity: 0; transform: translate3d(0, 100%, 0); }
+  100% { opacity: 1; transform: none; } }
+@-o-keyframes addtime { 0% { opacity: 0; transform: translate3d(0, 100%, 0); }
+  100% { opacity: 1; transform: none; } }
+@keyframes addtime { 0% { opacity: 0; transform: translate3d(0, 100%, 0); }
+  100% { opacity: 1; transform: none; } }
 /* BASE STYLES */
 html, body { height: 100%; }
 
@@ -121,8 +129,10 @@ input { -webkit-appearance: none; border-radius: 0; }
 .btn.btn-twitter { color: #1da1f2; border: 3px solid #1da1f2; background: #ffffff; text-transform: none; padding: 10px; }
 .btn.btn-twitter > i { margin-right: 5px; }
 
+#countdown { position: relative; width: 180px; margin: 0 auto; }
 #countdown .count-num { font-size: 70px; display: block; margin: 20px auto 0; }
 #countdown .loader { display: block; height: 100px; width: 100px; background: url(../img/loader.gif) no-repeat center center; background-size: cover; margin: 0 auto; }
+#countdown .addtime-animation { position: absolute; top: 10px; right: -20px; color: #78AB46; font-size: 20px; -webkit-animation-delay: 0; -webkit-animation-duration: 0.5s; -webkit-animation-name: addtime; -webkit-animation-fill-mode: forwards; -webkit-animation-iteration-count: 1; -moz-animation-delay: 0; -moz-animation-duration: 0.5s; -moz-animation-name: addtime; -moz-animation-fill-mode: forwards; -moz-animation-iteration-count: 1; -o-animation-delay: 0; -o-animation-duration: 0.5s; -o-animation-name: addtime; -o-animation-fill-mode: forwards; -o-animation-iteration-count: 1; animation-delay: 0; animation-duration: 0.5s; animation-name: addtime; animation-fill-mode: forwards; animation-iteration-count: 1; }
 
 input { padding: 10px 20px; font-size: 14px; border: 2px solid #cccccc; width: 100%; margin: 0 0 10px; }
 

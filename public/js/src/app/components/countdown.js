@@ -5,6 +5,8 @@ Vue.component('countdown', {
 			<div class="loader" v-show="showLoader"></div>
 			<div class="count-num" v-show="showTime">{{timeHTML}}</div>
 			<div class="end" v-show="showEnd">THE END! All humans are dead :(</div>
+			<div id="countdown-animations" v-show="showTime">
+			</div>
 		</div>
   `,
 
@@ -45,7 +47,7 @@ Vue.component('countdown', {
 			}
 
 			this.time--;
-			console.log(this.time);
+			//console.log(this.time);
 			this.renderTime();
 		},
 
@@ -54,16 +56,15 @@ Vue.component('countdown', {
 
 			var countdown = this;
 
-			// Add Time
-			socket.on('addTime', function(data) {
-				countdown.setTime(data);
-				console.log('event: add time', data);
-			}.bind(this));
-
 			// Set time
 			socket.on('setTime', function(data) {
 				countdown.setTime(data);
 				console.log('event: set time', data);
+				if (data.type == 'add') {
+					console.log(data);
+					this.renderAnimationPlusTime();
+				}
+
 			}.bind(this));
 
 		},
@@ -103,8 +104,21 @@ Vue.component('countdown', {
 
 			this.showTime = false;
 			this.showEnd = true;
-		}
+		},
 
+		// Animations
+		renderAnimationPlusTime: function() {
+			console.log(document.getElementById("countdown-animations"));
+
+			var wrapper = document.getElementById("countdown-animations");
+			var animationHTML = document.createElement("div");
+			animationHTML.innerHTML = '+1';
+			animationHTML.className = "addtime-animation";
+			wrapper.appendChild(animationHTML);
+			setTimeout(function() {
+				animationHTML.parentNode.removeChild(animationHTML);
+			}, 1000);
+		}
 	}
 
 });

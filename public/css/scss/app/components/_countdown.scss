@@ -4,6 +4,10 @@
 
 #countdown {
 
+	position: relative;
+	width: 180px;
+	margin: 0 auto;
+
 	// NUMBERS
 	.count-num {
 		font-size: 70px;
@@ -19,5 +23,17 @@
 		background: url(../img/loader.gif) no-repeat center center;
 		background-size: cover;
 		margin: 0 auto;
+	}
+
+	.addtime-animation {
+
+		position: absolute;
+		top: 10px;
+		right: -20px;
+		color: $greenPea;
+		@extend .bold;
+		font-size: 20px;
+		@include animation (0, 0.5s, addtime);
+
 	}
 }
